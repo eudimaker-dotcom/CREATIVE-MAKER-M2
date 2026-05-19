@@ -22,9 +22,14 @@ export default function WhatsAppSection() {
             Receba novidades em primeira mão, suporte exclusivo e troque experiências com outros criativos angolanos.
           </p>
           
-          <button className="h-12 px-8 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] transition-all shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:scale-105 active:scale-95">
+          <a 
+            href="https://chat.whatsapp.com/L2KGQfl8GXp7ZPrwmActcF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] transition-all shadow-[0_10px_20px_rgba(16,185,129,0.2)] hover:scale-105 active:scale-95"
+          >
             Entrar no Grupo WhatsApp
-          </button>
+          </a>
         </div>
 
         <div className="w-48 h-48 bg-white p-4 rounded-2xl shadow-2xl relative z-10 shrink-0 group transition-transform hover:rotate-3 flex items-center justify-center">
