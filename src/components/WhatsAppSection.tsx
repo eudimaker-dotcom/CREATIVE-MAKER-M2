@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { MessageSquare } from 'lucide-react';
+import whatsappQr from '../assets/images/whatsapp_qr.png';
 
 export default function WhatsAppSection() {
   return (
@@ -26,13 +27,12 @@ export default function WhatsAppSection() {
           </button>
         </div>
 
-        <div className="w-48 h-48 bg-white p-4 rounded-2xl shadow-2xl relative z-10 shrink-0 group transition-transform hover:rotate-3">
-          <div className="w-full h-full border-2 border-dashed border-slate-200 rounded-lg flex items-center justify-center relative overflow-hidden bg-slate-50">
-             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-slate-400">
-                <div className="w-20 h-20 bg-slate-100 rounded-md animate-pulse" />
-                <span className="text-[7px] uppercase tracking-widest font-black">Código QR Escanear</span>
-             </div>
-          </div>
+        <div className="w-48 h-48 bg-white p-4 rounded-2xl shadow-2xl relative z-10 shrink-0 group transition-transform hover:rotate-3 flex items-center justify-center">
+          <img 
+            src={whatsappQr} 
+            alt="WhatsApp QR Code" 
+            className="w-full h-full object-contain rounded-lg select-none pointer-events-none"
+          />
           <div className="absolute -top-3 -right-3 w-9 h-9 bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg animate-bounce">
             <MessageSquare className="w-4 h-4" />
           </div>
@@ -41,4 +41,5 @@ export default function WhatsAppSection() {
     </section>
   );
 }
+
 
