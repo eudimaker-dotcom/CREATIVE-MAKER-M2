@@ -175,3 +175,48 @@ export function getPublishedProducts(): AdminProduct[] {
     .filter(p => p.published)
     .sort((a, b) => new Date(b.created_at!).getTime() - new Date(a.created_at!).getTime());
 }
+
+export async function incrementLikes(id: string): Promise<number> {
+  if (hasSupabase) {
+    try {
+      const { data: product, error: fetchError } = await supabase
+        .from('products')
+        .select('likes_count')
+        .eq('id', id)
+        .single();
+      
+      if (!fetchError && product) {
+        const newLikes = (product.likes_count || 0) + 1;
+        const { error: updateError } = await supabase
+          .from('products')
+          .update({ likes_count: newLikes })
+          .eq('id', id);
+        
+        if (!updateError) {
+          // Trigger local site update by dispatching event with updated lists
+          const products = await getProducts();
+          const published = products.filter(p => p.published);
+          window.dispatchEvent(new CustomEvent('products-updated', { detail: published }));
+          return newLikes;
+        }
+      }
+    } catch (e) {
+      console.error('Failed to increment likes in Supabase, using local fallback', e);
+    }
+  }
+
+  // Fallback to local storage
+  let localProducts = getLocalProducts();
+  let newLikes = 0;
+  localProducts = localProducts.map(p => {
+    if (p.id === id) {
+      newLikes = (p.likes_count || 0) + 1;
+      return { ...p, likes_count: newLikes };
+    }
+    return p;
+  });
+  saveLocalProducts(localProducts);
+  window.dispatchEvent(new CustomEvent('products-updated', { detail: localProducts.filter(p => p.published) }));
+  return newLikes;
+}
+

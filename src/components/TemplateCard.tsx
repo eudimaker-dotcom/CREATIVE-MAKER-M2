@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { PSDTemplate } from '../types';
 import DownloadButton from './DownloadButton';
 import FavoriteButton from './FavoriteButton';
+import { incrementLikes } from '../admin/dataService';
 
 interface TemplateCardProps {
   template: PSDTemplate;
@@ -12,7 +13,6 @@ interface TemplateCardProps {
 
 export default function TemplateCard({ template, onDownload, onView }: TemplateCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -52,10 +52,11 @@ export default function TemplateCard({ template, onDownload, onView }: TemplateC
 
         {/* Favorite Button Overlay */}
         <FavoriteButton 
-          liked={isLiked} 
+          liked={(template.likes_count || 0) > 0} 
+          likesCount={template.likes_count || 0}
           onClick={(e) => {
             e.stopPropagation();
-            setIsLiked(!isLiked);
+            incrementLikes(template.id);
           }}
           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         />
@@ -79,7 +80,10 @@ export default function TemplateCard({ template, onDownload, onView }: TemplateC
             <span>&bull;</span>
             <span>{template.fileSize}</span>
           </div>
-          <span className="text-[11px] text-brand-text-dim/60 font-medium">300 DPI</span>
+          <div className="flex items-center gap-1 text-[11px] text-brand-text-dim/80 font-medium">
+            <span>❤️</span>
+            <span>{template.likes_count || 0}</span>
+          </div>
         </div>
         
         {/* Color Palette Extraction Display */}

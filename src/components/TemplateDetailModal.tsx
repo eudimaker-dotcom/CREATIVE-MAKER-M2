@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, FileText, Layout, Expand, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PSDTemplate } from '../types';
 import DownloadButton from './DownloadButton';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { incrementLikes } from '../admin/dataService';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,7 +18,21 @@ interface TemplateDetailModalProps {
 }
 
 export default function TemplateDetailModal({ template, onClose, onDownload }: TemplateDetailModalProps) {
+  const [localLikes, setLocalLikes] = useState(0);
+
+  useEffect(() => {
+    if (template) {
+      setLocalLikes(template.likes_count || 0);
+    }
+  }, [template]);
+
   if (!template) return null;
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLocalLikes(prev => prev + 1);
+    incrementLikes(template.id);
+  };
 
   return (
     <AnimatePresence>
@@ -117,14 +132,26 @@ export default function TemplateDetailModal({ template, onClose, onDownload }: T
                    </div>
                  </div>
 
-                 <div className="mt-4 pt-4 border-t border-white/5">
-                    <DownloadButton 
-                      onClick={() => onDownload(template)}
-                    />
-                   <p className="text-[9px] text-center text-brand-text-dim mt-4 uppercase tracking-widest font-medium opacity-40">
-                     Garantia de Qualidade Premium Hub &bull; Licença Comercial
-                   </p>
+                 <div className="mt-4 pt-4 border-t border-white/5 flex gap-4 items-center">
+                    <div className="flex-1">
+                      <DownloadButton 
+                        onClick={() => onDownload(template)}
+                      />
+                    </div>
+                    <button
+                      onClick={handleLike}
+                      className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 active:scale-95 transition-all text-rose-500 flex items-center justify-center gap-2 group cursor-pointer"
+                      title="Reagir a este template"
+                    >
+                      <span className="text-lg">❤️</span>
+                      <span className="text-xs font-semibold text-brand-text group-hover:text-rose-400">
+                        {localLikes}
+                      </span>
+                    </button>
                  </div>
+                 <p className="text-[9px] text-center text-brand-text-dim mt-2 uppercase tracking-widest font-medium opacity-40">
+                   Garantia de Qualidade Premium Hub &bull; Licença Comercial
+                 </p>
               </div>
             </motion.div>
           </div>
@@ -133,6 +160,7 @@ export default function TemplateDetailModal({ template, onClose, onDownload }: T
     </AnimatePresence>
   );
 }
+
 
 function DetailBox({ label, value, icon }: { label: string, value: string, icon: React.ReactNode }) {
   return (
