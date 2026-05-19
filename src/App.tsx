@@ -113,6 +113,19 @@ export default function App() {
         <FeaturedSlider onView={setActiveTemplate} templates={templates} />
 
         <section id="template-grid" className="p-[20px] py-8 md:px-[20px] max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4 border-b border-white/5 pb-4">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-brand-text-dim font-bold mb-2">Painel de Download</p>
+              <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-tight">
+                Pasta de <span className="brand-gradient-text">PSDs</span>
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-brand-text-dim">
+              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+              <span>{templates.length} PSDs disponíveis</span>
+            </div>
+          </div>
+          
           {/* Grid */}
           <motion.div 
             layout

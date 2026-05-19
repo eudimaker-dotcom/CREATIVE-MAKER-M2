@@ -27,8 +27,9 @@ export default function Header({ onAIClick, onPacksClick, onUserClick }: HeaderP
 
       <div className="flex items-center min-w-[200px] justify-end">
         <nav className="hidden lg:flex items-center gap-8 mr-6 relative">
-          <a href="#template-grid" className="text-xs font-bold uppercase tracking-widest text-brand-text-dim hover:text-brand-text transition-colors">Templates</a>
+          <a href="#template-grid" className="text-xs font-bold uppercase tracking-widest text-brand-text-dim hover:text-brand-text transition-colors">PSD</a>
           <button onClick={onPacksClick} className="text-xs font-bold uppercase tracking-widest text-brand-text-dim hover:text-brand-text transition-colors">Packs</button>
+
           <div className="flex items-center origin-center">
             <AIButton 
               label="Inteligência Artificial"
