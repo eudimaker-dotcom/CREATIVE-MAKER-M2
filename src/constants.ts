@@ -1,14 +1,19 @@
 import { PSDTemplate } from './types';
 
+// Import local assets correctly so Vite bundles, hashes and resolves them perfectly in production/Vercel
+import img1 from './assets/images/regenerated_image_1778811287349.jpg';
+import img2 from './assets/images/regenerated_image_1778811290976.jpg';
+import img3 from './assets/images/regenerated_image_1778811304560.jpg';
+import img4 from './assets/images/regenerated_image_1778811318414.jpg';
+import img5 from './assets/images/regenerated_image_1778811340170.png';
+
 export const TEMPLATES: PSDTemplate[] = [
   {
     id: '1',
     title: 'Luxury Brand Identity Mockup',
     category: 'Branding',
-    image: '/src/assets/images/regenerated_image_1778811287349.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811287349.jpg'
-    ],
+    image: img1,
+    gallery: [img1],
     description: 'Um mockup de identidade visual luxuoso com acabamentos em dourado e papel texturizado premium. Ideal para apresentações de logotipos corporativos de alto nível.',
     fileSize: '142 MB',
     resolution: '3000 x 4000 px',
@@ -16,18 +21,10 @@ export const TEMPLATES: PSDTemplate[] = [
   },
   {
     id: '2',
-    title: 'GMLab Medical Template',
+    title: 'Modelo Médico GMLab',
     category: 'Medical',
-    image: '/src/assets/images/regenerated_image_1778811430742.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811430742.jpg',
-      '/src/assets/images/regenerated_image_1778811437302.jpg',
-      '/src/assets/images/regenerated_image_1778811447497.jpg',
-      '/src/assets/images/regenerated_image_1778811452639.jpg',
-      '/src/assets/images/regenerated_image_1778811456691.jpg',
-      '/src/assets/images/regenerated_image_1778811473626.jpg',
-      '/src/assets/images/regenerated_image_1778811495762.jpg'
-    ],
+    image: img2,
+    gallery: [img2],
     description: 'Template premium para clínicas de análises clínicas GMLab. Inclui layouts para consultas médicas, exames laboratoriais e check-ups completos com design institucional moderno em tons de verde esmeralda.',
     fileSize: '115 MB',
     resolution: '3000 x 4000 px',
@@ -35,12 +32,10 @@ export const TEMPLATES: PSDTemplate[] = [
   },
   {
     id: '3',
-    title: 'Streetwear Apparel Mockup',
+    title: 'Maquete de vestuário streetwear',
     category: 'Fashion',
-    image: '/src/assets/images/regenerated_image_1778811290976.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811290976.jpg'
-    ],
+    image: img3,
+    gallery: [img3],
     description: 'Mockup de vestuário streetwear premium, incluindo hoodies e t-shirts de alta qualidade com texturas de tecido realistas.',
     fileSize: '215 MB',
     resolution: '4000 x 5000 px',
@@ -50,10 +45,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '4',
     title: 'Modern App UI Presentation',
     category: 'Digital',
-    image: '/src/assets/images/regenerated_image_1778811304560.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811304560.jpg'
-    ],
+    image: img4,
+    gallery: [img4],
     description: 'Template de apresentação de interface de aplicativo móvel moderno, com efeitos de profundidade e sombras dinâmicas.',
     fileSize: '128 MB',
     resolution: '3000 x 2000 px',
@@ -63,10 +56,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '5',
     title: 'Cosmetic Packaging Mockup',
     category: 'Packaging',
-    image: '/src/assets/images/regenerated_image_1778811318414.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811318414.jpg'
-    ],
+    image: img5,
+    gallery: [img5],
     description: 'Mockup de embalagem de cosméticos de alta fidelidade com reflexos realistas e texturas de vidro.',
     fileSize: '185 MB',
     resolution: '3500 x 3500 px',
@@ -76,10 +67,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '6',
     title: 'Editorial Magazine Layout',
     category: 'Print',
-    image: '/src/assets/images/regenerated_image_1778811340170.png',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811340170.png'
-    ],
+    image: img1,
+    gallery: [img1],
     description: 'Layout de revista editorial contemporânea com grid flexível e tipografia elegante.',
     fileSize: '156 MB',
     resolution: '2480 x 3508 px',
@@ -87,12 +76,10 @@ export const TEMPLATES: PSDTemplate[] = [
   },
   {
     id: '7',
-    title: 'Business Card Mockup Vol 1',
+    title: 'Maquete de Cartão de Visita Vol. 1',
     category: 'Stationery',
-    image: '/src/assets/images/regenerated_image_1778811398933.jpg',
-    gallery: [
-      '/src/assets/images/regenerated_image_1778811398933.jpg'
-    ],
+    image: img2,
+    gallery: [img2],
     description: 'Mockup de cartões de visita minimalistas empilhados para uma apresentação profissional.',
     fileSize: '65 MB',
     resolution: '2000 x 1500 px',
@@ -102,8 +89,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '8',
     title: 'Social Media Feed Kit',
     category: 'Digital',
-    image: '/src/assets/images/regenerated_image_1778811287349.jpg',
-    gallery: ['/src/assets/images/regenerated_image_1778811287349.jpg'],
+    image: img3,
+    gallery: [img3],
     description: 'Kit de posts para redes sociais com design coeso e moderno.',
     fileSize: '110 MB',
     resolution: '1080 x 1080 px',
@@ -113,8 +100,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '9',
     title: 'Real Estate Brochure',
     category: 'Print',
-    image: '/src/assets/images/regenerated_image_1778811290976.jpg',
-    gallery: ['/src/assets/images/regenerated_image_1778811290976.jpg'],
+    image: img4,
+    gallery: [img4],
     description: 'Brochura imobiliária de luxo com layouts limpos e elegantes.',
     fileSize: '230 MB',
     resolution: 'A4 300 DPI',
@@ -124,8 +111,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '10',
     title: 'Coffee Shop Branding',
     category: 'Branding',
-    image: '/src/assets/images/regenerated_image_1778811304560.jpg',
-    gallery: ['/src/assets/images/regenerated_image_1778811304560.jpg'],
+    image: img5,
+    gallery: [img5],
     description: 'Design de identidade completo para cafeterias artesanais.',
     fileSize: '145 MB',
     resolution: '3000 x 3000 px',
@@ -135,8 +122,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '11',
     title: 'Gaming Twitch Overlay',
     category: 'Digital',
-    image: '/src/assets/images/regenerated_image_1778811318414.jpg',
-    gallery: ['/src/assets/images/regenerated_image_1778811318414.jpg'],
+    image: img1,
+    gallery: [img1],
     description: 'Overlay dinâmico para streamers com estética gamer moderna.',
     fileSize: '88 MB',
     resolution: '1920 x 1080 px',
@@ -146,8 +133,8 @@ export const TEMPLATES: PSDTemplate[] = [
     id: '12',
     title: 'Vintage Vinyl Cover',
     category: 'Abstract',
-    image: '/src/assets/images/regenerated_image_1778811340170.png',
-    gallery: ['/src/assets/images/regenerated_image_1778811340170.png'],
+    image: img2,
+    gallery: [img2],
     description: 'Capa de disco de vinil vintage com texturas de papel envelhecido.',
     fileSize: '167 MB',
     resolution: '3000 x 3000 px',

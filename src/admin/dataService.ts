@@ -8,7 +8,13 @@ const hasSupabase = !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VIT
 // --- LOCAL STORAGE DB ---
 const getLocalProducts = (): AdminProduct[] => {
   const saved = localStorage.getItem('admin_products');
-  if (saved) return JSON.parse(saved);
+  if (saved) {
+    if (saved.includes('/src/assets/')) {
+      localStorage.removeItem('admin_products');
+    } else {
+      return JSON.parse(saved);
+    }
+  }
   // Default to TEMPLATES
   const defaultProducts = TEMPLATES.map(t => ({
     ...t,
